@@ -57,7 +57,7 @@ for file_path in file_paths:
     plt.show()
 ```
 (provided by ChatGPT), here's the result of epoch = 3
-<img src="images/3bg.jpg">
+<img src="images/resultOfEPOCH=3.png">
 
 ## Result
 
