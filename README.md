@@ -56,8 +56,10 @@ for file_path in file_paths:
     plt.imshow(image)
     plt.show()
 ```
-(provided by ChatGPT), here's the result of epoch = 3
+(code was provided by ChatGPT), here's the result of epoch = 3<br>
 <img src="images/resultOfEPOCH=3.png">
+
+Then I found I shouldn't use green or black in my target image unleast I want the background of predict images are not white.
 
 ## Result
 
