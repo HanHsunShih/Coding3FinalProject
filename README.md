@@ -8,7 +8,7 @@
 ## Prepare Data
 
 ### Use Photoshop to preprocessing
-images/3bg.jpg
+<img src="images/3bg.jpg">
 I created my own data with fish I draw before https://www.instagram.com/fishchief/?hl=zh-tw. Most of my previous works are well-organised, I import them into photoshop and resize all images into 256x256 px then fit the image with three different colour of background to make the fish more obvious. My dataset resulting in 67 examples.
 
 ### Detect edges of all images
