@@ -4,7 +4,8 @@
 
 ## How to train a pix2pix(edges2xxx) model from scratch
 - prepare data
-- Detect edges of all images and combination
+- Detect edges of all images
+- Images combination
 
 ## Prepare Data
 
@@ -40,6 +41,23 @@ Used the code in this link https://gitlab.cern.ch/smaddrel/pix2pix-tf_2_0/-/blob
 If you're using dataset fron online, paste the URL to line 16 and unzip it with line 18-20. But since I'm using my own dataset, I commanded both part of code and add my root path which is in my drive on line 22 (Don't forget to mount Drive!).
 
 Then I create 2 sub folders in base folder, ```train``` and ```val```, and manually split images in dataset into these two folders.
+
+To test if the model work, I changed the EPOCHS number from 200 into 3 in line 477, after running the code, it will automatically create a couple new sub-folders in content(content/results/0). By running following code:
+```
+import matplotlib.pyplot as plt
+import os
+
+folder_path = '/content/results/4'
+
+file_paths = [os.path.join(folder_path, file) for file in os.listdir(folder_path) if file.endswith('.png')]
+
+for file_path in file_paths:
+    image = plt.imread(file_path)
+    plt.imshow(image)
+    plt.show()
+```
+(provided by ChatGPT), here's the result of epoch = 3
+<img src="images/3bg.jpg">
 
 ## Result
 
