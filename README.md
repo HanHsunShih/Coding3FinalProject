@@ -16,17 +16,30 @@ I created my own fish dataset I drew before https://www.instagram.com/fishchief/
 I upload all the images to my google drive, after mounting the colad with my drive, I started to detect edges of my images then combine them together. The script that I use to detect edges of images and for combination from one folder at once is here:
 https://github.com/yining1023/pix2pix-tensorflow/blob/master/tools/edge-detection.py
 (need to specify our own path on line 31), also need to create a new empty folder in dataset folder called "edges" in the same directory.
- 
-## Model Training
-First, run
-```
-python tools/split.py \
-  --dir photos/combined #your directory
-```
-to create ```train``` and ```val``` folder
 
-Then used this link https://gitlab.cern.ch/smaddrel/pix2pix-tf_2_0/-/blob/master/pix2pix.py to train the model.
-If you're using dataset fron online, paste the URL to line 16 and unzip it with line 18-20. But since I'm using my own dataset, I commanded both part of code and add my path on line 22.
+### Images combination
+```
+number_of_file = 67
+folder = '/content/drive/MyDrive/fishDataset/combined'
+
+for i in range(number_of_file):
+  edges = np.array(Image.open(f'/content/drive/MyDrive/fishDataset/edges/{i+1}.jpg'))
+  resized = np.array(Image.open(f'/content/drive/MyDrive/fishDataset/resized/{i+1}.jpg'))
+  # (256,256,1)
+  edges = tf.expand_dims(edges,2)
+  edges = tf.concat([edges,edges,edges],2)
+  img_combined = tf.concat([resized,edges], 1)
+  img_pil = tf.keras.utils.array_to_img(img_combined)
+  img_pil.save(f'{folder}/{i}.jpg')
+```
+This code snippet was written by Jasper, aime to combine input image and target image together
+
+## Model Training
+
+Used the code in this link https://gitlab.cern.ch/smaddrel/pix2pix-tf_2_0/-/blob/master/pix2pix.py to train the model.
+If you're using dataset fron online, paste the URL to line 16 and unzip it with line 18-20. But since I'm using my own dataset, I commanded both part of code and add my root path which is in my drive on line 22 (Don't forget to mount Drive!).
+
+Then I create 2 sub folders in base folder, ```train``` and ```val```, and manually split images in dataset into these two folders.
 
 ## Result
 
