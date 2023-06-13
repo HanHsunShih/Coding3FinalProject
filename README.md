@@ -17,7 +17,7 @@ I use my drawing to created my own fish datase https://www.instagram.com/fishchi
 <img src="images/148Layers.png" alt="alt text" width="500">
 I imput all of the images into the same file, after adjusted all of them, I uploaded this psd file to Google Drive, running the code below can export every layers to target folder also on Google Drive.
 
-``` 
+```python
 # export layers from psd
 from psd_tools import PSDImage
 from PIL import Image
