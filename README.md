@@ -2,16 +2,46 @@
 
 ## Demo
 
-## How to train a pix2pix(edges2xxx) model from scratch
+## How to train a pix2pix(edges2fish) model from scratch
 - prepare data
 - Detect edges of all images
 - Images combination
 
 ## Prepare Data
 
-### Use Photoshop to preprocessing
-<img src="images/3bg.jpg">
-I created my own fish dataset I drew before https://www.instagram.com/fishchief/?hl=zh-tw. Most of my previous works are well-organised, I import them into photoshop and resize all images into 256x256 px then fit the image with one of three different colours of background to make the fish more obvious. My dataset resulting in 67 examples.
+### prepare images using Photoshop
+I use my drawing to created my own fish datase https://www.instagram.com/fishchief/?hl=zh-tw. Most of my previous works are well-organised, I import them into photoshop to do some basic adjustment such as remove the background, manually enhance edges, etc.
+<img src="images/AdjustImage.jpg" alt="alt text" width="500">
+
+### Save each layers from PSD file
+<img src="images/148Layers.png" alt="alt text" width="500">
+I imput all of the images into the same file, after adjusted all of them, I uploaded this psd file to Google Drive, running the code below can export every layers to target folder also on Google Drive.
+
+``` 
+# export layers from psd
+from psd_tools import PSDImage
+from PIL import Image
+
+# path to PSD file
+psd = PSDImage.open('/content/drive/MyDrive/fishDataset/2306131706.psd')
+
+# choose the output folder
+output_folder = '/content/drive/MyDrive/fishDataset/png_folder'
+os.makedirs(output_folder, exist_ok=True)
+
+for index, layer in enumerate(psd):
+    # use layer's name as file name
+    layer_name = f'layer_{index}.png'
+    output_path = os.path.join(output_folder, layer_name)
+
+    # save as PNG file
+    layer_image = layer.topil()
+    layer_image.save(output_path, 'PNG')
+
+    print(f'Saved layer {layer_name}')
+``` 
+
+### Resize PNG images and save them as jpg into resized folder
 
 ### Detect edges of all images and combination
 I upload all the images to my google drive, after mounting the colad with my drive, I started to detect edges of my images then combine them together. The script that I use to detect edges of images and for combination from one folder at once is here:
