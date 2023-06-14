@@ -4,12 +4,12 @@
 
 ## How to train a pix2pix(edges2fish) model from scratch
 - prepare data<br>
-  └── prepare images using Photoshop<br>
-  └── Save each layer(.png) from PSD file by Python<br>
-  └── Resize PNG images and save them as jpg into resized folder<br>
-  └── Detect edges of all images<br>
-  └── combine target(resized) image and edge image<br>
-  └── Save each layer from PSD file by Python<br>
+  └ prepare images using Photoshop<br>
+  └ Save each layer(.png) from PSD file by Python<br>
+  └ Resize PNG images and save them as jpg into resized folder<br>
+  └ Detect edges of all images<br>
+  └ combine target(resized) image and edge image<br>
+- Model Training
 
 ## Prepare Data
 
@@ -116,16 +116,17 @@ After save all the resized images to my resized_folder, I started to detect edge
 https://github.com/yining1023/pix2pix-tensorflow/blob/master/tools/edge-detection.py
 (need to specify our own path on line 31)
 
-### combine target(resized) image and edge image
+### Combine target(resized) image and edge image
 <img src="images/combination.jpg" alt="alt text" width="800">
-```python
+
+``` python
 number_of_file = 122
 folder = '/content/drive/MyDrive/fishDataset/combined'
 
 for i in range(number_of_file):
   edges = np.array(Image.open(f'/content/drive/MyDrive/fishDataset/edges/{i+1}.jpg'))
   resized = np.array(Image.open(f'/content/drive/MyDrive/fishDataset/resized/{i+1}.jpg'))
-  # (256,256,1)
+  #(256,256,1)
   edges = tf.expand_dims(edges,2)
   edges = tf.concat([edges,edges,edges],2)
   img_combined = tf.concat([resized,edges], 1)
@@ -134,8 +135,8 @@ for i in range(number_of_file):
 ```
 This code snippet was written by Jasper, aime to combine input image and target image together
 
-### randomly split combined image into train/ val folder
-80% of data goes to train folder, 20% goes to val folder
+### Randomly split combined image into train/ val folder
+80% of data goes to train_folder, 20% goes to val_folder
 
 ```python
 import os
