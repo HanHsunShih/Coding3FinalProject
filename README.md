@@ -4,8 +4,12 @@
 
 ## How to train a pix2pix(edges2fish) model from scratch
 - prepare data
-- Detect edges of all images
-- Images combination
+  └── prepare images using Photoshop
+  └── Save each layer(.png) from PSD file by Python
+  └── Resize PNG images and save them as jpg into resized folder
+  └── Detect edges of all images
+  └── combine target(resized) image and edge image
+  └── Save each layer from PSD file by Python
 
 ## Prepare Data
 
@@ -13,7 +17,7 @@
 I use my drawing to created my own fish datase https://www.instagram.com/fishchief/?hl=zh-tw. Most of my previous works are well-organised, I import them into photoshop to do some basic adjustment such as remove the background, manually enhance edges, etc.<br>
 <img src="images/AdjustImage.jpg" alt="alt text" width="500">
 
-### Save each layer from PSD file
+### Save each layer from PSD file by Python
 <img src="images/148Layers.png" alt="alt text" width="800">
 I imput all of the images into the same file, I have more than 148 layers, if I need to save them one by one will take too many times. So after adjusted all of them, I uploaded the psd file to Google Drive, running the code below to export every layers to target folder also on Google Drive.
 
@@ -105,12 +109,13 @@ print("Resizing complete!")
 ```
 Reference: https://note.nkmk.me/en/python-pillow-add-margin-expand-canvas/
 
-### Detect edges of all images and combination
+### Detect edges of all images
+
 After save all the resized images to my resized_folder, I started to detect edges of my images and save the edge photo into edges_folder. The script I used to detect edges of images is here:
 https://github.com/yining1023/pix2pix-tensorflow/blob/master/tools/edge-detection.py
 (need to specify our own path on line 31)
 
-### Images combination
+### combine target(resized) image and edge image
 
 ```python
 number_of_file = 122
