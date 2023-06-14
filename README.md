@@ -10,10 +10,10 @@
 ## Prepare Data
 
 ### prepare images using Photoshop
-I use my drawing to created my own fish datase https://www.instagram.com/fishchief/?hl=zh-tw. Most of my previous works are well-organised, I import them into photoshop to do some basic adjustment such as remove the background, manually enhance edges, etc.
+I use my drawing to created my own fish datase https://www.instagram.com/fishchief/?hl=zh-tw. Most of my previous works are well-organised, I import them into photoshop to do some basic adjustment such as remove the background, manually enhance edges, etc.<br>
 <img src="images/AdjustImage.jpg" alt="alt text" width="500">
 
-### Save each layers from PSD file
+### Save each layer from PSD file
 <img src="images/148Layers.png" alt="alt text" width="800">
 I imput all of the images into the same file, I have more than 148 layers, if I need to save them one by one will take too many times. So after adjusted all of them, I uploaded the psd file to Google Drive, running the code below to export every layers to target folder also on Google Drive.
 
@@ -26,7 +26,7 @@ from PIL import Image
 psd = PSDImage.open('/content/drive/MyDrive/fishDataset/2306131706.psd')
 
 # choose the output folder
-output_folder = '/content/drive/MyDrive/fishDataset/png_folder'
+output_folder = '/content/drive/MyDrive/fishDataset/'
 os.makedirs(output_folder, exist_ok=True)
 
 for index, layer in enumerate(psd):
@@ -64,7 +64,7 @@ import os
 from PIL import Image
 
 number_of_png = 122
-png_path = "/content/drive/MyDrive/fishDataset/png_folder"
+png_folder = "/content/drive/MyDrive/fishDataset/png_folder"
 output_folder = "/content/drive/MyDrive/fishDataset/resized"
 target_size = (256, 256)
 
@@ -106,11 +106,12 @@ print("Resizing complete!")
 Reference: https://note.nkmk.me/en/python-pillow-add-margin-expand-canvas/
 
 ### Detect edges of all images and combination
-I upload all the images to my google drive, after mounting the colad with my drive, I started to detect edges of my images then combine them together. The script that I use to detect edges of images and for combination from one folder at once is here:
+After save all the resized images to my resized_folder, I started to detect edges of my images and save the edge photo into edges_folder. The script I used to detect edges of images is here:
 https://github.com/yining1023/pix2pix-tensorflow/blob/master/tools/edge-detection.py
-(need to specify our own path on line 31), also need to create a new empty folder in dataset folder called "edges" in the same directory.
+(need to specify our own path on line 31)
 
 ### Images combination
+
 ```python
 number_of_file = 122
 folder = '/content/drive/MyDrive/fishDataset/combined'
@@ -127,7 +128,9 @@ for i in range(number_of_file):
 ```
 This code snippet was written by Jasper, aime to combine input image and target image together
 
-### randomly split combined image into train/ test folder
+### randomly split combined image into train/ val folder
+80% of data goes to train folder, 20% goes to val folder
+
 ```python
 import os
 import random
