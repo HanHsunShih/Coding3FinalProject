@@ -16,7 +16,7 @@
 ### prepare images using Photoshop
 <img src="images/prepareImagesUsingPhotoshop.jpg" alt="alt text" width="800">
 I use my drawing to created my own fish datase https://www.instagram.com/fishchief/?hl=zh-tw. Most of my previous works are well-organised, I import them into photoshop to do some basic adjustment such as remove the background, manually enhance edges, etc.<br>
-<img src="images/AdjustImage.jpg" alt="alt text" width="500">
+<img src="images/AdjustImage2.jpg" alt="alt text" width="800">
 
 ### Save each layer from PSD file by Python
 <img src="images/148Layers.jpg" alt="alt text" width="800">
