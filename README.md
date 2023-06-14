@@ -190,6 +190,8 @@ Then I found I shouldn't use green or black in my target image unleast I want th
 
 ## Result
 
+Even the drawings were all drew by myself, but the style is to diverse, not sure if this is the reason
+
 ## Export the model
 
 ## Getting Start
