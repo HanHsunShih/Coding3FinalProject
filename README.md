@@ -175,9 +175,7 @@ for file_name in files_for_folder_c:
 ## Model Training
 
 Used the code in this link https://gitlab.cern.ch/smaddrel/pix2pix-tf_2_0/-/blob/master/pix2pix.py to train the model.
-If you're using dataset fron online, paste the URL to line 16 and unzip it with line 18-20. But since I'm using my own dataset, I commanded both part of code and add my root path which is in my drive on line 22 (Don't forget to mount Drive!).
-
-Then I create 2 sub folders in base folder, ```train``` and ```val```, and manually split images in dataset into these two folders.
+If you're using dataset fron online, paste the URL to line 16 and unzip it with line 18-20. But since I'm using my own dataset, I commanded both part of code and add my root path which is in my drive on line 22.
 
 To test if the model work, I changed the EPOCHS number from 200 into 3 in line 477, after running the code, it will automatically create a couple new sub-folders in content(content/results/0). By running following code:
 ```
@@ -193,7 +191,7 @@ for file_path in file_paths:
     plt.imshow(image)
     plt.show()
 ```
-(code was provided by ChatGPT), here's the result of epoch = 3<br>
+(code provided by ChatGPT), here's the result of epoch = 3, data size: 22<br>
 <img src="images/resultOfEPOCH=3.png">
 
 Then I found I shouldn't use green or black in my target image unleast I want the background of predict images are not white.
