@@ -14,12 +14,13 @@
 ## Prepare Data
 
 ### prepare images using Photoshop
+<img src="images/prepareImagesUsingPhotoshop.jpg" alt="alt text" width="800">
 I use my drawing to created my own fish datase https://www.instagram.com/fishchief/?hl=zh-tw. Most of my previous works are well-organised, I import them into photoshop to do some basic adjustment such as remove the background, manually enhance edges, etc.<br>
 <img src="images/AdjustImage.jpg" alt="alt text" width="500">
 
 ### Save each layer from PSD file by Python
-<img src="images/148Layers.png" alt="alt text" width="800">
-I imput all of the images into the same file, I have more than 148 layers, if I need to save them one by one will take too many times. So after adjusted all of them, I uploaded the psd file to Google Drive, running the code below to export every layers to target folder also on Google Drive.
+<img src="images/148Layers.jpg" alt="alt text" width="800">
+I gathered all of the images into the same file, there're a lot of layers, if I need to manually save them one by one will take too many times. So I uploaded the psd file to Google Drive, running the code below to export every layers to target folder(png_folder).
 
 ```python
 # export layers from psd
@@ -47,7 +48,7 @@ for index, layer in enumerate(psd):
 (code provided by ChatGPT)
 
 ### Resize PNG images and save them as jpg into resized folder
-
+<img src="images/resize.jpg" alt="alt text" width="800">
 Size of PNG files which has exported will suit the shape of the layer. The model I'm going to use only accept image which is 256*256px, so I need to resize them and also save them as jpg file so they don't have alpha channel. (Not sure if the model allow us to use PNG file🤔) JPG files will be exported to the file called "resized".
 The directory structure is organized as follows:
 
