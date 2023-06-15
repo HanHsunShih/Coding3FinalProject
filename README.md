@@ -49,7 +49,7 @@ for index, layer in enumerate(psd):
 
 ### Resize PNG images and save them as jpg into resized folder
 <img src="images/resize.jpg" alt="alt text" width="800">
-Size of PNG files which has exported will suit the shape of the layer. The model I'm going to use only accept image which is 256*256px, so I need to resize them and also save them as jpg file so they don't have alpha channel. (Not sure if the model allow us to use PNG file🤔) JPG files will be exported to the file called "resized".
+Size of PNG files which has been exported will suit the shape of the layer. The training model I'm going to use only accept image which is 256*256px, so I need to resize them and also save them as jpg file so they don't have alpha channel. (Not sure if the model allow me to use PNG file🤔) JPG files will be exported to the file called "resized".
 The directory structure is organized as follows:
 
 ```
@@ -112,11 +112,12 @@ Reference: https://note.nkmk.me/en/python-pillow-add-margin-expand-canvas/
 
 ### Detect edges of all images
 <img src="images/detectEdge.jpg" alt="alt text" width="800">
-After save all the resized images to my resized_folder, I started to detect edges of my images and save the edge photo into edges_folder. The script I used to detect edges of images is here:
-https://github.com/yining1023/pix2pix-tensorflow/blob/master/tools/edge-detection.py
+After saving all the resized images to my resized_folder, I started to detect edges of my images and save the edge photo into edges_folder. The script I used to detect edges of images is here:
+https://github.com/yining1023/pix2pix-tensorflow/blob/master/tools/edge-detection.py<br>
 (need to specify our own path on line 31)
 
 ### Combine target(resized) image and edge image
+This step I'm going to combine resized image and edge image together, so I can save them into combined_folder and split them into train_folder and val_folder.
 <img src="images/combination.jpg" alt="alt text" width="800">
 
 ``` python
@@ -174,10 +175,13 @@ for file_name in files_for_folder_c:
 
 ## Model Training
 
-Used the code in this link https://gitlab.cern.ch/smaddrel/pix2pix-tf_2_0/-/blob/master/pix2pix.py to train the model.
-If you're using dataset fron online, paste the URL to line 16 and unzip it with line 18-20. But since I'm using my own dataset, I commanded both part of code and add my root path which is in my drive on line 22.
+I Used the code in this link https://gitlab.cern.ch/smaddrel/pix2pix-tf_2_0/-/blob/master/pix2pix.py to train the model.
+If you're using dataset fron online, paste the URL to line 16 and unzip it with line 18-20. But since I'm using my own dataset, I commanded both part of code and add my root path from Google Drive on line 22.
 
-To test if the model work, I changed the EPOCHS number from 200 into 3 in line 477, after running the code, it will automatically create a couple new sub-folders in content(content/results/0). By running following code:
+Following is the structure of the code, I found it more understandable to read this then directly try to understand all of the code.
+<img src="images/trainingCodeStructure.png" alt="alt text" width="600">
+
+To test if the model work, I changed the EPOCHS number from 200 to 3 in line 477, after running the code, it will automatically create a couple of new sub-folders (content/results/0). By running following code:
 ```
 import matplotlib.pyplot as plt
 import os
@@ -194,7 +198,7 @@ for file_path in file_paths:
 (code provided by ChatGPT), here's the result of epoch = 3, data size: 22<br>
 <img src="images/resultOfEPOCH=3.png">
 
-Then I found I shouldn't use green or black in my target image unleast I want the background of predict images are not white.
+
 
 ## Result
 
