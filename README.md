@@ -1,7 +1,7 @@
 # pix2pix-edges-to-images
 
 ## Demo
-
+<img src="images/Demo.jpg" alt="alt text" width="1000">
 ## How to train a pix2pix(edges2fish) model from scratch
 - prepare data<br>
   └ prepare images using Photoshop<br>
@@ -201,9 +201,7 @@ for file_path in file_paths:
 
 
 ## Result
+<img src="images/result1.jpg" alt="alt text" width="1000">
+<img src="images/result2.jpg" alt="alt text" width="1000">
 
-Even the drawings were all drew by myself, but the style is to diverse, not sure if this is the reason
-
-## Export the model
-
-## Getting Start
+I tried to adjust different parameters to see how can I get better result. After several times of testing, I found EPOCHS 
