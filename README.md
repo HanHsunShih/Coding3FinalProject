@@ -2,6 +2,8 @@
 
 ## Demo
 <img src="images/Demo.jpg" alt="alt text" width="1000">
+Video Link: https://www.youtube.com/watch?v=GNRUXdwpvnY&ab_channel=hanhsunshih 
+
 ## How to train a pix2pix(edges2fish) model from scratch
 - prepare data<br>
   └ prepare images using Photoshop<br>
