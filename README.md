@@ -206,4 +206,7 @@ for file_path in file_paths:
 <img src="images/result1.jpg" alt="alt text" width="1000">
 <img src="images/result2.jpg" alt="alt text" width="1000">
 
-I tried to adjust different parameters to see how can I get better result. After several times of testing, I found EPOCHS 
+I tried to adjust different parameters to see how can I get better result, including number of EPOCHS, counter (iteration limit), size of dataset. After several times of testing, I found EPOCHS is the key influence of the result. As we set EPOCHS which is more than 100, the result will be much better. But in order to be concern of the training time, decrease the counter from 100 to 25 might take fewer time for training.
+
+## What else can I improve the result?
+Since my dataset is quite small (only has 149 imges), in the future, I can do data augmentation such as flipping, rotate to increase the dataset. Using other model came after pix2pix, for example, pix2pixHD might also be an effective way to improve the result.
