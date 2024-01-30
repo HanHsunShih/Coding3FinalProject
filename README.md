@@ -1,5 +1,5 @@
 # pix2pix-edges-to-images
-
+Using the fish illustrations I created earlier as a dataset, I trained a pix2pix model using the GANs framework.
 ## Demo
 <img src="images/Demo.jpg" alt="alt text" width="1000">
 Video Link: https://www.youtube.com/watch?v=GNRUXdwpvnY&ab_channel=hanhsunshih 
@@ -17,7 +17,7 @@ Video Link: https://www.youtube.com/watch?v=GNRUXdwpvnY&ab_channel=hanhsunshih
 
 ### prepare images using Photoshop
 <img src="images/prepareImagesUsingPhotoshop.jpg" alt="alt text" width="800">
-I use my drawing to created my own fish datase https://www.instagram.com/fishchief/?hl=zh-tw. Most of my previous works are well-organised, I import them into photoshop to do some basic adjustment such as remove the background, manually enhance edges, etc.<br>
+I use my drawing to created my own fish dataset https://www.instagram.com/fishchief/?hl=zh-tw. Most of my previous works are well-organised, I import them into photoshop to do some basic adjustment such as remove the background, manually enhance edges, etc.<br>
 <img src="images/AdjustImage2.jpg" alt="alt text" width="800">
 
 ### Save each layer from PSD file by Python
